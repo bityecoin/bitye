@@ -1,0 +1,8 @@
+/bin/sh ../share/genbuild.sh obj/build.h
+g++ -c -O2 -pthread -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -g -DUSE_IPV6 -DBOOST_SPIRIT_THREADSAFE -I/home/coinye/coinyecoin/src -I/home/coinye/coinyecoin/src/obj -DHAVE_BUILD_INFO -fno-stack-protector -fstack-protector-all -Wstack-protector -D_FORTIFY_SOURCE=2  -MMD -MF obj/checkpoints.d -o obj/checkpoints.o checkpoints.cpp
+/bin/sh ../share/genbuild.sh obj/build.h
+g++ -c -O2 -pthread -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -g -DUSE_IPV6 -DBOOST_SPIRIT_THREADSAFE -I/home/coinye/coinyecoin/src -I/home/coinye/coinyecoin/src/obj -DHAVE_BUILD_INFO -fno-stack-protector -fstack-protector-all -Wstack-protector -D_FORTIFY_SOURCE=2  -MMD -MF obj/checkpoints.d -o obj/checkpoints.o checkpoints.cpp
+/bin/sh ../share/genbuild.sh obj/build.h
+g++ -c -O2 -pthread -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -g -DUSE_IPV6 -DBOOST_SPIRIT_THREADSAFE -I/home/coinye/coinyecoin/src -I/home/coinye/coinyecoin/src/obj -DHAVE_BUILD_INFO -fno-stack-protector -fstack-protector-all -Wstack-protector -D_FORTIFY_SOURCE=2  -MMD -MF obj/checkpoints.d -o obj/checkpoints.o checkpoints.cpp
+/bin/sh ../share/genbuild.sh obj/build.h
+g++ -c -O2 -pthread -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -g -DUSE_IPV6 -DBOOST_SPIRIT_THREADSAFE -I/home/coinye/coinyecoin/src -I/home/coinye/coinyecoin/src/obj -DHAVE_BUILD_INFO -fno-stack-protector -fstack-protector-all -Wstack-protector -D_FORTIFY_SOURCE=2  -MMD -MF obj/checkpoints.d -o obj/checkpoints.o checkpoints.cpp
