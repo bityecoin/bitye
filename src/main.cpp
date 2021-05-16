@@ -3586,24 +3586,21 @@ void FormatHashBuffers(CBlock* pblock, char* pmidstate, char* pdata, char* phash
     //
     // Prebuild hash buffers
     //
-    struct
-    {
-        struct unnamed2
-        {
+    struct {
+        struct unnamed2 {
             int nVersion;
             uint256 hashPrevBlock;
             uint256 hashMerkleRoot;
             unsigned int nTime;
             unsigned int nBits;
             unsigned int nNonce;
-        }
-        block;
+        } block;
         unsigned char pchPadding0[64];
         uint256 hash1;
         unsigned char pchPadding1[64];
-    }
-    tmp;
-    memset(&tmp, 0, sizeof(tmp));
+    } tmp;
+    //memset(&tmp, 0, sizeof(tmp));
+    tmp = {};
    // std::fill(tmp, 9, std::complex<double>{});
 
     tmp.block.nVersion       = pblock->nVersion;
