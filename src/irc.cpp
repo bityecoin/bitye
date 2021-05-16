@@ -299,7 +299,7 @@ void ThreadIRCSeed2(void* parg)
             Send(hSocket, "JOIN #coinyecoinTEST3\r");
             Send(hSocket, "WHO #coinyecoinTEST3\r");
         } else {
-            int channel_number = GetRandInt(50);
+            int channel_number = GetRandInt(2);
             Send(hSocket, strprintf("JOIN #coinyecoin%02d\r", channel_number).c_str());
             Send(hSocket, strprintf("WHO #coinyecoin%02d\r", channel_number).c_str());
         }

@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Copyright (c) 2011-2012 The CoinyeCoin Developers
 // Copyright (c) 2013 The CoinyeCoin Developers
+// NotCopyRight (NC) 2021 - Just a guy doing the Coinye's work.
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
