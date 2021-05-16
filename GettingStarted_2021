@@ -1,0 +1,18 @@
+Libraries:
+openssl.x86_64
+openssl-devel.x86_64
+openssl-libs.x86_64
+boost.x86_64
+boost-atomic.x86_64
+boost-devel.x86_64
+libdb.x86_64
+libdb-cxx-devel
+libdb-devel.x86_64
+
+cd src
+make -f makefile.unix clean
+make -f makefile.unix USE_UPNP=-
+
+./coinyecoind -daemon
+
+run the script to build your coinyecoin.conf
