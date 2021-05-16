@@ -1,4 +1,5 @@
 $loc = $(pwd)
+mkdir /home/$(whoami)/.coinyecoin/
 cd /home/$(whoami)/.coinyecoin/
 > coinyecoin.conf
 echo "server=1" >> coinyecoin.conf
