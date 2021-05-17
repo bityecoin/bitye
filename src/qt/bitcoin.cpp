@@ -147,8 +147,11 @@ int main(int argc, char *argv[])
 #endif
 
     // Internal string conversion is all UTF-8
+#if QT_VERSION < 0x050000
+    // Internal string conversion is all UTF-8
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
     QTextCodec::setCodecForCStrings(QTextCodec::codecForTr());
+#endif
 
     Q_INIT_RESOURCE(bitcoin);
     QApplication app(argc, argv);
@@ -223,7 +226,12 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    QSplashScreen splash(QPixmap(":/images/splash"), 0);
+   // QSplashScreen splash(QPixmap(":/images/splash"), 0);
+    QString splashPath;
+    if (GetBoolArg("-testnet")) splashPath=":/images/splash_testnet";
+    else splashPath=":/images/splash";
+    QSplashScreen splash(QPixmap(splashPath), 0);
+
     if (GetBoolArg("-splash", true) && !GetBoolArg("-min"))
     {
         splash.show();

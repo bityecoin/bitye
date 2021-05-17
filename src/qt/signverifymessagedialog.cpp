@@ -24,10 +24,10 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
 
 #if (QT_VERSION >= 0x040700)
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
-    ui->addressIn_SM->setPlaceholderText(tr("Enter a CoinyeCoin address (e.g. 7NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)"));
+    ui->addressIn_SM->setPlaceholderText(tr("Enter a CoinyeCoin address (e.g. 5UVcZejmmts4x5kRwvHxd3EBhckC6kD1sn)"));
     ui->signatureOut_SM->setPlaceholderText(tr("Click \"Sign Message\" to generate signature"));
 
-    ui->addressIn_VM->setPlaceholderText(tr("Enter a CoinyeCoin address (e.g. 7NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)"));
+    ui->addressIn_VM->setPlaceholderText(tr("Enter a CoinyeCoin address (e.g. 5UVcZejmmts4x5kRwvHxd3EBhckC6kD1sn)"));
     ui->signatureIn_VM->setPlaceholderText(tr("Enter CoinyeCoin signature"));
 #endif
 

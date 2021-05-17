@@ -19,6 +19,7 @@
 #include <QFileDialog>
 #include <QDesktopServices>
 #include <QThread>
+#include <QUrlQuery>
 
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
@@ -76,6 +77,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
+//bool (const QUrl &uri, SendCoinsRecipient *out)
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     if(uri.scheme() != QString("coinyecoin"))
@@ -89,7 +91,9 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
     SendCoinsRecipient rv;
     rv.address = uri.path();
     rv.amount = 0;
-    QList<QPair<QString, QString> > items = uri.queryItems();
+    QUrlQuery uriQuery(uri);
+    QList<QPair<QString, QString> > items = uriQuery.queryItems();
+    //QList<QPair<QString, QString> > items = uri.queryItems();
     for (QList<QPair<QString, QString> >::iterator i = items.begin(); i != items.end(); i++)
     {
         bool fShouldReturnFalse = false;
@@ -142,7 +146,8 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString HtmlEscape(const QString& str, bool fMultiLine)
 {
-    QString escaped = Qt::escape(str);
+    QString escaped = str.toHtmlEscaped();
+    //QString escaped = Qt::escape(str);
     if(fMultiLine)
     {
         escaped = escaped.replace("\n", "<br>\n");
@@ -174,15 +179,19 @@ QString getSaveFileName(QWidget *parent, const QString &caption,
                                  QString *selectedSuffixOut)
 {
     QString selectedFilter;
-    QString myDir;
-    if(dir.isEmpty()) // Default to user documents location
-    {
-        myDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
-    }
-    else
-    {
-        myDir = dir;
-    }
+//    QString myDir;
+//    if(dir.isEmpty()) // Default to user documents location
+//    {
+//        myDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
+//    }
+//    else
+//    {
+//        myDir = dir;
+//    }
+//    QString result = QFileDialog::getSaveFileName(parent, caption, myDir, filter, &selectedFilter);
+    QString myDir = dir.isEmpty()
+                    ? QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)
+                    : dir;
     QString result = QFileDialog::getSaveFileName(parent, caption, myDir, filter, &selectedFilter);
 
     /* Extract first suffix from filter pattern "Description (*.foo)" or "Description (*.foo *.bar ...) */
