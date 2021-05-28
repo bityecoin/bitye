@@ -27,8 +27,7 @@ cd src
 
 make -f makefile.unix clean
 
-make -f makefile.unix USE_UPNP=-
-
+make -f makefile.unix 
 
 ./coinyecoind -daemon
 
