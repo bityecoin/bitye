@@ -239,7 +239,6 @@ std::string HelpMessage()
         "  -externalip=<ip>       " + _("Specify your own public address") + "\n" +
         "  -onlynet=<net>         " + _("Only connect to nodes in network <net> (IPv4, IPv6 or Tor)") + "\n" +
         "  -discover              " + _("Discover own IP address (default: 1 when listening and no -externalip)") + "\n" +
-        "  -irc                   " + _("Find peers using internet relay chat (default: 0)") + "\n" +
         "  -listen                " + _("Accept connections from outside (default: 1 if no -proxy or -connect)") + "\n" +
         "  -bind=<addr>           " + _("Bind to given address. Use [host]:port notation for IPv6") + "\n" +
         "  -dnsseed               " + _("Find peers using DNS lookup (default: 1 unless -connect)") + "\n" +
@@ -247,6 +246,7 @@ std::string HelpMessage()
         "  -bantime=<n>           " + _("Number of seconds to keep misbehaving peers from reconnecting (default: 86400)") + "\n" +
         "  -maxreceivebuffer=<n>  " + _("Maximum per-connection receive buffer, <n>*1000 bytes (default: 5000)") + "\n" +
         "  -maxsendbuffer=<n>     " + _("Maximum per-connection send buffer, <n>*1000 bytes (default: 1000)") + "\n" +
+        "  -bloomfilters          " + _("Allow peers to set bloom filters (default: 1)") + "\n" +
 #ifdef USE_UPNP
 #if USE_UPNP
         "  -upnp                  " + _("Use UPnP to map the listening port (default: 1 when listening)") + "\n" +
@@ -336,8 +336,11 @@ bool AppInit2()
     // CoinyeCoin: Keep irc seeding on by default for now.
 //    if (fTestNet)
 //    {
-        SoftSetBoolArg("-irc", true);
+        //SoftSetBoolArg("-irc", true);
 //    }
+    fBloomFilters = GetBoolArg("-bloomfilters", true);
+    if (fBloomFilters)
+        nLocalServices |= NODE_BLOOM;
 
     if (mapArgs.count("-bind")) {
         // when specifying an explicit binding address, you want to listen on it
