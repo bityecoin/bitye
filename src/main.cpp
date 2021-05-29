@@ -844,8 +844,8 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
 {
         int64 nSubsidy = 666666 * COIN;
 
-        //nSubsidy >>= (nHeight / 250000); // Subsidy is halved every 100k blocks
-	nSubsidy = 2500;
+        nSubsidy >>= (nHeight / 100000); // Subsidy is halved every 100k blocks
+		
     return nSubsidy + nFees;
 }
 
